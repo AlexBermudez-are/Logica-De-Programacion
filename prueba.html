@@ -1,0 +1,327 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>importacion</h1>
+    <script>
+
+    function a(br){
+        for (let i = 0; i < br.length; i++) {
+        console.log(br.length) 
+        }
+    }
+    //a("hola mundo")
+//**********************************************
+    b = (h = "",parametro = undefined) => {
+        if(!h) return console.error("no me haz agregado un texto");
+        if(!parametro){console.error("no me haz agregado un digito a dividir");
+        }else{
+            console.log(h.slice(0,parametro))
+        }
+    }
+    //b("hola mundo",2)
+//**********************************************
+    c = (hu ="", separador = undefined) =>{
+        if(!hu){console.log("no me haz agregado un texto");}
+        if(!separador){console.log("no me haz agregado un digito a cortar");
+        }else{console.log(hu.split(separador))}    //Split separa una cadena de texto dependiendo del parametro que se le de
+    }
+    //c("hola que tal",' ')
+//**********************************************
+    d = (si,itera) =>{
+        for(let n = 1; n <= itera; n++) console.info(`${si}, ${itera}`);
+    }
+    //d("hola mundo",3)
+//***********************************************
+    e = (siu) =>{
+        if(typeof(siu)!=="string"){return console.log("el valor tiene que ser una cadena");
+        }else{siu = siu.split('').reverse().join('') 
+              console.log(siu)}
+    }
+    //e("hola mundo")
+//***********************************************
+    f = (no,mundo) =>{
+        x = 0
+        posicion = no.indexOf(mundo);
+        while ( posicion != -1 ) {
+        x++;
+        posicion = no.indexOf(mundo,posicion+1);
+        }
+        //console.log(x)
+    }
+    //f("hola mundo adios mundo", "mundo")
+//************************************************
+    g = (pal = "") => {
+        for (let i = 0; i < pal.length; i++) {
+            let palAlRevez = pal.split('').reverse().join('')
+            if(pal===palAlRevez){
+                console.log(true)
+            }else{
+                console.log(false);
+            }
+        }
+    }
+    //g("salas")
+//*************************************************
+    h = (texto, patron) => {
+        const texto1 = texto.replace(new RegExp(patron,"ig"),"") // Replace remplaza cuando se le da un segundo parametro ó
+                                                                 // Elimina el valor si el parametro se pasa vacio
+        console.log(texto1)
+    }
+    //h("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
+//*************************************************
+    i = (numeros) => {
+        numeros1 = Math.ceil(Math.random()*(600-500 + 1) + 500)
+        return(numeros1)
+    }
+//*************************************************
+    j = (capi=0) => {
+        if(!capi) return console.log("no agregaste un numero");;
+        if(typeof capi !== "number"){
+            console.error("el valor no es un numero");
+        }else{
+            capi1 = capi.toString()
+            capi2 = capi1.split('').reverse().join('')
+            if(capi1 === capi2){
+                console.log(true)
+            }else{
+                console.log(false)
+            }
+        }
+    }
+    //j("2002")
+//*************************************************
+    k = (factorial) => {
+        let fact = 1
+        for (let i = factorial; i > 1; i--) {
+            fact *= i
+        }
+        console.log(fact)
+    }
+    //k(5)
+//*************************************************
+    l = (impar = 0) => {
+        if(!impar) return console.warn("no puede ser un numero 0");
+        if(typeof impar !== "number") return console.error("el valor tiene que ser un numero");
+        if(Math.sign(impar) === -1) return console.warn("el valor no puede ser negativo");
+        if(impar%2===0){
+            console.log(`el numero ${impar} no es impar`)
+        }else{
+            console.log(`el numero ${impar} es impar`);
+        }
+    }
+    //l(9)
+//*************************************************
+    m = (comparacion = 0) => {
+        if(!comparacion) return console.warn("no puede ser un numero 0");
+        if(typeof(comparacion) !== "number") return console.error("tienes que ingresar un numero"); 
+        if(comparacion%2===0){
+            console.log(`el numero ${comparacion} es par`);
+        }else{
+            console.log(`el numero ${comparacion} es impar`);
+        }
+    }
+    //m(2)
+//***************************************************
+    n = (conversor = "", numeroGrados = 0) => {
+        conversor1 = conversor.toLowerCase()
+        if(!conversor) return console.error("no me haz agregado un valor celcius o fahrenheit");
+        if(!numeroGrados) return console.error("no me haz agregado ningun grado");
+        if(conversor1 !== "c" && conversor1 !== "f") return console.error("el valor no puede convertirse");
+        if(conversor1 === "c"){ numeroGrados1 = (numeroGrados * 1.8) + 32
+           console.log(`${numeroGrados}C°, son ${numeroGrados1}F°`)
+        }
+        if(conversor1 === "f"){ numeroGrados2 = (numeroGrados - 32) / 1.8
+        console.log(`${numeroGrados}F°, son ${numeroGrados2}C°`);
+        }
+    }
+    // n("C",30)
+    // n("F",86)
+//****************************************************
+    o = (base = undefined, parame = undefined) => {
+        if(!base) console.log("no me agregaste una base a convertir");
+        if(!parame) console.log("no me agregaste una base para convertir");
+        if(typeof(base) !== "number") console.error("la base no es un numero");
+        if(typeof(parame) !== "number") console.error("el paramentro no es un numero");
+        if(parame !== 10 && parame !== 2) return console.error("el paramentro no puede ser convertido");
+        if(parame === 2) return console.log(`${base} parametro ${parame} = ${parseInt(base,parame)} parametro 10`)
+        if(parame === 10) return console.log(`${base} parametro ${parame} = ${(base.toString(2))} parametro 2`)
+    }
+    //o(4,10)
+//****************************************************
+    const p = (precio = undefined, descuento = undefined) => {
+        if(!precio) return console.error("No se ha agregado un precio");
+        if(precio === 0) return console.warn("El valor 0 no es un precio");
+        if(!descuento) return console.error("No se a agregado el descuento");
+        if(descuento === 0) return console.warn("El producto no tiene");
+        if(typeof (precio) ==! "number" || typeof (descuento) !== "number"){
+            console.error("el digito ingresado tiene que ser un digito");
+        }else{
+            let descuento2 = (precio * descuento)/100
+            let descFinal = (precio - descuento2)
+            console.log(`el precio es ${precio}, el descuento es del ${descuento}
+                y el monto final es de ${descFinal}`);
+        }
+    }
+    //p(1255,45)
+//*********************************************************
+    q = (fecha = undefined) => {
+        if(!fecha) console.error("no me ingresaste una fecha");
+        if(!(fecha instanceof Date)) console.error("el valor ingresado no es una fecha valida");
+
+        let aniosmenos = (new Date().getTime() - fecha.getTime())
+        let milSec = 1000 * 60 * 60 * 24 * 365
+        let aniosResultado = Math.floor(aniosmenos/milSec)
+        
+        return (Math.sign(aniosResultado) === -1)
+        ? console.log(`faltan ${Math.abs(aniosResultado)} para ${fecha.getFullYear()}`) //abs devuelve el valor absoluto sin - o +
+        : (Math.sign(aniosResultado) === 1)
+            ? console.log(`Han pasado ${aniosResultado} desde ${fecha.getFullYear()}`)
+            : console.log(`Estamos en el año actual ${fecha.getFullYear()}`)
+    }
+    //q(new Date(2084,1,23))
+//************************************************************
+        s = (nombre = "") => {
+            nombre1 = nombre.toLocaleLowerCase()
+            vocales = 0
+            consonantes = 0
+            if(!nombre) {return console.error("no me haz agregado ningun nombre");
+            }else if(typeof (nombre) !== "string") {return console.error("No me haz agregado un nombre valido"); 
+            }else if(/^\s+$/.test(nombre)){console.error("error, el campo no pueden ser espacios en blanco");
+            }else{
+                for (const itera of nombre) {
+                    if(/[aeiuoíúóáé]/.test(itera)) vocales++
+
+                    if(/[qwrtypsdfghjklñzxcvbnm]/.test(itera)) consonantes++
+                }
+            }
+            return console.log(`el numero de vocales, es ${vocales} y el numero de consonantes es ${consonantes}`);
+        }
+        //s("hola banda")
+//************************************************************
+        t = (validacion = "") => {
+            if(!validacion) return console.error("no puede estar vacio este campo");
+            if(typeof (validacion) !== "string") return console.error("este campo tiene que ser un texto");
+        if(/^\s+$/.test(validacion)) return console.error("error, el campo no pueden ser espacios en blanco")
+            if(/[0-9]/.test(validacion)) return console.error("el nombre no puede contener numeros");
+            if(/^[A-Za-zÑñáéúíóÁÉÍÚÓ\s]+$/g.test(validacion)){
+                console.log(`el nombre ${validacion}es verdadero`); 
+            }else{
+                console.log(`el nombre ${validacion} es falso`)
+            }
+        }
+        //t("")
+//************************************************************
+        u = (email) => {
+            if(!email) return console.error("no puede estar vacio este campo");
+            if(typeof (email) !== "string") return console.error("este campo tiene que ser un texto");
+            if(/[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+(\.[a-z0-9]+)*(\.[a-z]{2,15})/i.test(email)){
+                // validacion de email (/[a-z0-9]+(\.[a-z0-9]+)*@[a-z0-9]+(\.[a-z0-9]+)*(\.[a-z]{2,15})/i.test(email))
+                console.log(`el correo ${email} ingresado es valido`);
+            }else{
+                console.warn(`el correo ${email} ingresado es invalido`);
+            }
+        }
+        //u("")
+//************************************************************
+        v = (arregloNumerico = undefined) => {
+            if(!(arregloNumerico instanceof Array)) return console.error("el valor tiene que ser un arreglo");
+            if(!arregloNumerico) return console.error("no ingresaste un arreglo de numeros");
+            if(arregloNumerico.length === 0) return console.error("el arreglo esta vacio");
+            for (const key of arregloNumerico) {
+                if(typeof(key) !== "number") return console.error(`el valor ${key} no es un numero`);
+            }
+            let arrFinal = arregloNumerico.map(el => el * el)
+            console.log(`el valor ${arregloNumerico} a la potencia de si mismo es ${arrFinal}`)
+        }
+        //v([1,2,3,4])
+//*************************************************************
+        x = (numerosDif = undefined) => {
+            if(!(numerosDif instanceof Array)) return console.error("el valor tiene que ser un arreglo");
+            if(!numerosDif) return console.error("no ingresaste un arreglo de numeros")
+            if(numerosDif.length === 0) return console.error("el arreglo esta vacio");
+            let numAlto = numerosDif[0]
+            let numChico = numerosDif[0]
+            for (const key of numerosDif) {
+                if(typeof(key) !== "number") return console.error(`el valor ${key} no es un numero`);
+            }
+            for (let i = 0; i < numerosDif.length; i++) {
+                if(numerosDif[i] > numAlto){
+                    numAlto = numerosDif[i]
+                }
+                if(numerosDif[i] < numChico){
+                    numChico = numerosDif[i]
+                }
+            }
+            return console.log(`el numero mas grande es ${numAlto} y el numero mas chico es ${numChico}`);
+        }
+        //x([137,55,-12,709,4])
+//***************************************************************
+        y = (parEImpares) => {
+            if(!(parEImpares instanceof Array)) return console.error("el valor tiene que ser un arreglo");
+            if(!parEImpares) return console.error("no ingresaste un arreglo de numeros")
+            if(parEImpares.length === 0) return console.error("el arreglo esta vacio");
+            for (const key of parEImpares) {
+                if(typeof(key) !== "number") return console.error(`el valor ${key} no es un numero`);
+            }
+
+            return console.log({
+                impares: parEImpares.filter(key => key%2===1),   //el filter ayuda a crear un nuevo objeto 
+                pares: parEImpares.filter(key => key%2===0)      //el valor key viene de la iteracion en el for of
+            });
+        }
+        //y([1,2,3,4,5,6,7,8,9,0])
+//****************************************************************
+    z = (ordenar) => {
+        if(!(ordenar instanceof Array)) return console.error("el valor tiene que ser un arreglo");
+        if(!ordenar) return console.error("no ingresaste un arreglo de numeros")
+        if(ordenar.length === 0) return console.error("el arreglo esta vacio");
+        for (const key of ordenar) {
+            if(typeof(key) !== "number") return console.error(`el valor ${key} no es un numero`);
+        }
+        return console.log({
+            asc: ordenar.filter(key => key).sort(),
+            desc: ordenar.filter(key => key).sort().reverse()
+        });
+    }
+    //z([2,5,3,6,7,9])
+//****************************************************************
+    a2 = (duplicados) => {
+        if(!(duplicados instanceof Array)) return console.error("el valor tiene que ser un arreglo");
+        if(!duplicados) return console.error("no ingresaste un arreglo de numeros")
+        if(duplicados.length === 0) return console.error("el arreglo esta vacio");
+
+        return console.log({
+            duplicados,
+            sinDuplicados: [...new Set(duplicados)] 
+        });
+    }
+    //a2([x, x, "x", 10, 10, "10", true, true, "true"])
+//****************************************************************
+    b2 = (promedio) => {
+        if(!(promedio instanceof Array)) return console.error("el valor tiene que ser un arreglo");
+        if(!promedio) return console.error("no ingresaste un arreglo de numeros")
+        if(promedio.length === 0) return console.error("el arreglo esta vacio");
+
+        for (const num of promedio) {
+            if(typeof(num) !== "number") return console.error(`el valor ${num} no es un numero`);
+        }
+        (
+            promedio.reduce((total,num,index,promedio)=>{ //================> reduce( )genera un nuevo parametro del original y genera una funcion
+                //total es el acumulador, num es el iterador, index es la posicion y promedio es el arreglo
+                total += num
+                if(index === promedio.length - 1){
+                    console.log(`el promedio de ${promedio} es de ${total/promedio.length}`);
+                }else{return total}
+            })  
+        )
+    }
+    //b2([1,2,3])
+
+    
+    </script>
+</body>
+</html>
